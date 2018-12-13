@@ -1,0 +1,12 @@
+ant.importBuild('build.xml') { targetName ->
+	if (targetName.equals('base'))
+		"ant-${targetName}".toString()
+	else
+		targetName
+}
+
+task base {
+	doFirst {
+		println "Hello from Gradle. Task base"
+	}
+}

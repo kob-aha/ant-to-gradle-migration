@@ -1,0 +1,8 @@
+<project>
+    <target name="base">
+        <echo>Hello, from Ant. Target base</echo>
+    </target>
+    <target name="main" depends="base">
+        <echo>Hello, from Ant. Target main</echo>
+    </target>
+</project>

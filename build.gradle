@@ -1,12 +1,17 @@
-ant.importBuild('build.xml') { targetName ->
-	if (targetName.equals('base'))
-		"ant-${targetName}".toString()
-	else
-		targetName
+ant.importBuild('build.xml')
+
+task gradleBase {
+	doFirst {
+		println "Hello from Gradle. Task ${name}"
+		ant.properties['gradleExecution'] = true
+	}
 }
 
-task base {
+task gradleBaseDecision {
 	doFirst {
-		println "Hello from Gradle. Task base"
+		println "Hello from Gradle. Task ${name} "
+	}
+	onlyIf {
+		!ant.properties.getOrDefault("skipGradle", "")
 	}
 }

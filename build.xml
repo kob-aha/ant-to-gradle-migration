@@ -1,5 +1,8 @@
 <project>
-    <target name="base">
+    <target name="decide">
+        <property name="skipGradle" value="true"/>
+    </target>
+    <target name="base" depends="gradleBase, decide, gradleBaseDecision" unless="gradleExecution">
         <echo>Hello, from Ant. Target base</echo>
     </target>
     <target name="main" depends="base">
